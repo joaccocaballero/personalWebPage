@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "../../components/header";
 import { ActiveSectionContextProvider } from "@/context/activeSectionContext";
+import ThemeSwitch from "@/components/theme-swith";
+import ThemeContextProvider from "@/context/theme-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +20,13 @@ export default function RootLayout({ children }) {
       >
         <div className="bg-midnight-blue-50 absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-full dark:bg-[#946263]"></div>
         <div className="bg-[#C6DFFD] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-full md:left-[-1rem] dark:bg-[#676394]"></div>
-        <ActiveSectionContextProvider>
-          <Header />
-          {children}
-        </ActiveSectionContextProvider>
+        <ThemeContextProvider>
+          <ActiveSectionContextProvider>
+            <Header />
+            {children}
+            <ThemeSwitch/>
+          </ActiveSectionContextProvider>
+        </ThemeContextProvider>
       </body>
     </html>
   );

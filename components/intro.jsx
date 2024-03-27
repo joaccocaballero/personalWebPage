@@ -26,7 +26,7 @@ export default function Intro() {
                   duration: 0.2,
                 }}
             >
-                <Image src="portrait.jpeg" alt="personalportrait" width={240} height={240} quality={99} priority={true}
+                <Image src="/portrait.jpeg" alt="personalportrait" width={240} height={240} quality={99} priority={true}
                     className="rounded-full object-cover border-[0.35rem] border-white shadow-xl"
                   >
                 </Image>

@@ -10,9 +10,9 @@ export default function Education() {
     const { ref } = useSectionInView("Education")
 
   return (
-    <div className="flex items-center  w-full justify-center mt-10" ref={ref}>
+    <div className="flex items-center w-full justify-center mt-10" ref={ref}>
         <motion.section
-            className="w-[45rem] text-center leading-8 scroll-mt-[15rem]"
+            className="w-[45rem] text-center leading-8 scroll-mt-[8rem]"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.175 }}

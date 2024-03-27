@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 
 export default function About() {
-  const { ref } = useSectionInView("About")
+  const { ref } = useSectionInView("About", 0.60)
 
   return (
     <div className="flex items-center w-full mt-[5rem] justify-center">
         <motion.section
-            className="w-[45rem] text-center  items-center leading-8  scroll-mt-[12rem]"
+            className="w-[45rem] text-center items-center leading-8 scroll-mt-[8.5rem]"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.175 }}

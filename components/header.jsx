@@ -8,7 +8,7 @@ import clsx from "clsx";
 import { ActiveSectionContext } from "@/context/activeSectionContext";
 
 export default function Header() {
-  const { activeSection, setActiveSection } = useContext(ActiveSectionContext)
+  const { activeSection, setActiveSection, setTimeOfLastClick } = useContext(ActiveSectionContext)
   return (
     <header className="z-[999] relative">
         <motion.div
@@ -27,6 +27,10 @@ export default function Header() {
                     key={link.hash}
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
+                    onClick={() => {
+                      setActiveSection(link.name);
+                      setTimeOfLastClick(Date.now());
+                    }}
                     >
                       <Link className={clsx(
                           "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-500 dark:hover:text-gray-300",

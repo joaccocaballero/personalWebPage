@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 
-export default function Project({ title, client, clientWeb ,description, tags }){
+export default function Project({ title, client, clientWeb ,description, tags, image }){
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -24,10 +24,10 @@ export default function Project({ title, client, clientWeb ,description, tags })
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
-      className="group mb-3 sm:mb-8 last:mb-0"
+      className="group mb-3 sm:mb-8 w-full last:mb-0"
     >
-        <section className="flex flex-col xl:flex-row justify-between relative">
-        <div className="pt-4 pb-7 w-full p-5 flex gap-3 flex-col">
+        <section className="flex flex-col xl:flex-row justify-evenly w-full mb-10 relative">
+        <div className="pt-7 mt-4 p-5 pb-7 flex w-[100%] gap-3 flex-col">
             <h2 className="font-bold text-xl">{title}</h2>
             <span className="font-semibold"><a href={clientWeb} className="hover:text-blue-500">Client: {client}</a></span> 
             <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70 text-justify">{description}</p>
@@ -37,8 +37,8 @@ export default function Project({ title, client, clientWeb ,description, tags })
             ))}
             </ul>
         </div>  
-        <div className="max-w-[30rem]">
-            <Image src={"/mockupPcom.png"} alt={"project photo"} layout="responsive" width={300} height={200} quality={99} priority={true} />
+        <div className="max-w-[25rem] p-2">
+            <Image src={image} alt={"project photo"} className="rounded-lg" layout="responsive" width={300} height={200} quality={99} priority={true} />
         </div>
         </section>
     </motion.div>
